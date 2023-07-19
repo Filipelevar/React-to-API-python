@@ -1,0 +1,18 @@
+#search-bar-input{
+ width: 196px;
+height: 42px;
+flex-shrink: 0;
+
+border-radius: 8px;
+border: 2px solid #FFF;
+color: white;
+
+}
+
+.search-bar{
+    background: transparent;
+}
+
+::placeholder {
+    color: white;
+}

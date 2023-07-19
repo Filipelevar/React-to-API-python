@@ -1,0 +1,16 @@
+.container-search-btn{
+    background: none;
+    display: flex;
+    background: transparent;
+}
+
+.search-btn{
+width: 84px;
+height: 42px;
+flex-shrink: 0;
+background: transparent;
+
+border-radius: 8px;
+border: 2px solid #FFF;
+color: white;
+}
