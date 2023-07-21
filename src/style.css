@@ -1,4 +1,4 @@
-* {
+html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 38px;
     
   }
 
@@ -29,13 +29,7 @@
     flex-direction: row;
     align-items: center;
     gap: 16px;
-    margin-top: 74px;
+    margin-top: 74px;   
     background:transparent;
  
-}
-.div-search-bar{
-    background: transparent;
-}
-.div-button{
-    background: transparent;
 }

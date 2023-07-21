@@ -9,10 +9,22 @@ color: white;
 
 }
 
-.search-bar{
-    background: transparent;
+#search-bar-input{
+   background: transparent;
+   outline: none;
+   
 }
 
 ::placeholder {
-    color: white;
+    color: #9F9F9F;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
 }
+
+
+  #search-bar-input:focus + label {
+    transform: translateY(-30px);
+    font-size: 14px;
+  }
