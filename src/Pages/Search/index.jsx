@@ -1,72 +1,76 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useCallback, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../../style.css";
+import imagemLogo from "../../Assets/image 1.svg";
+import Button from "../../Components/Button/index";
+import SearchBar from "../../Components/SearchBar";
+import CharacterCard from "../../Components/Cards/index";
+import Pagination from "../../Components/Pagination/index";
+import LoadingPage from "../../Components/LoadingPage/index";
 
 const Search = () => {
   const [searchResults, setSearchResults] = useState([]);
-  const location = useLocation();
-  const searchTerm = new URLSearchParams(location.search).get("name");
+  const [totalPages, setTotalPages] = useState(1);
+  const { name, page } = useParams();
+  const [searchTerm, setSearchTerm] = useState(name);
+  const [loading, setLoading] = useState(true);
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      window.location.href = `/search/${encodeURIComponent(
+        searchTerm
+      )}/${newPage}`;
+    }
+  };
+  const handleSearch = useCallback(async () => {
+    try {
+      const response = await axios.get(
+        `https://apipython-gp9i.onrender.com/search?name=${searchTerm}&page=${page}`
+      );
+      setSearchResults(response.data.characters);
+      setTotalPages(response.data.total_pages);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data from API:", error);
+    }
+  }, [searchTerm, page]);
 
   useEffect(() => {
-    const fetchSearchResults = async () => {
-      try {
-        const response = await axios.get(
-          `https://apipython-gp9i.onrender.com/search?name=${searchTerm}&page=1`
-        );
-        setSearchResults(response.data.characters);
-      } catch (error) {
-        console.error("Error fetching data from API:", error);
-      }
-    };
+    setSearchTerm(name);
+    setLoading(true);
+    handleSearch();
+  }, [name, handleSearch]);
 
-    fetchSearchResults();
-  }, [searchTerm]);
+  if (loading) {
+    return <LoadingPage />;
+  }
 
   return (
-    <div className="search-results">
-      <h2>Search Results</h2>
-      <ul>
+    <div className="container mx-auto px-4 py-8">
+      <img src={imagemLogo} alt="" className="imagem-logo" />
+      <div className="container-btn-search">
+        <div className="div-search-bar">
+          <SearchBar onSearch={setSearchTerm} />
+        </div>
+        <div className="div-button">
+          <Button />
+        </div>
+      </div>
+      <div className="grid grid-cols-4 gap-6 mt-20">
         {searchResults.map((character) => (
-          <li key={character.id}>
-            <img src={character.image} alt={character.name} />
-            <div>
-              <h3>{character.name}</h3>
-              <p>Status: {character.status}</p>
-              <p>Species: {character.species}</p>
-              <p>Gender: {character.gender}</p>
-              <p>Origin: {character.origin_name}</p>
-              <p>Location: {character.location_name}</p>
-            </div>
-          </li>
+          <CharacterCard key={character.id} character={character} />
         ))}
-      </ul>
+      </div>
+      <div className="mt-10">
+        <Pagination
+          page={Number(page)}
+          totalPages={totalPages}
+          handlePageChange={handlePageChange}
+        />
+      </div>
     </div>
   );
 };
 
 export default Search;
-
-// import React from "react";
-// import imagemLogo from "../../Assets/image 1.svg";
-// import "../../style.css";
-// import Button from "../../Components/Button/index";
-// import SearchBar from "../../Components/SearchBar";
-
-// const HomeScreen = () => {
-//   return (
-//     <div className="container">
-//       <img src={imagemLogo} alt="" className="imagem-logo" />
-//       <div className="container-btn-search">
-//         <div className="div-search-bar">
-//           <SearchBar></SearchBar>
-//         </div>
-//         <div className="div-button">
-//           <Button></Button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default HomeScreen;

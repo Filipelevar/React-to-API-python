@@ -8,7 +8,7 @@ export const AppRouter = () => {
     <Router>
       <Routes>
         <Route path="/" element={<HomeScreen />} />
-        <Route path="/search" element={<SearchButton />} />
+        <Route path="/search/:name/:page" element={<SearchButton />} />
       </Routes>
     </Router>
   );

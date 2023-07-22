@@ -9,20 +9,16 @@ const HomeScreen = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
-  const handleSearch = (value) => {
-    setSearchTerm(value);
-  };
-
   const handleButtonClick = () => {
-    navigate(`/search?name=${searchTerm}&page=1`);
+    navigate(`/search/${encodeURIComponent(searchTerm)}/1`);
   };
 
   return (
-    <div className="container">
+    <div className="container mx-auto my-4">
       <img src={imagemLogo} alt="" className="imagem-logo" />
       <div className="container-btn-search">
         <div className="div-search-bar">
-          <SearchBar onSearch={handleSearch} />
+          <SearchBar onSearch={setSearchTerm} />
         </div>
         <div className="div-button">
           <Button onClick={handleButtonClick} />
@@ -33,26 +29,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-// import React from "react";
-// import imagemLogo from "../../Assets/image 1.svg";
-// import "../../style.css";
-// import Button from "../../Components/Button/index";
-// import SearchBar from "../../Components/SearchBar";
-
-// const HomeScreen = () => {
-//   return (
-//     <div className="container">
-//       <img src={imagemLogo} alt="" className="imagem-logo" />
-//       <div className="container-btn-search">
-//         <div className="div-search-bar">
-//           <SearchBar></SearchBar>
-//         </div>
-//         <div className="div-button">
-//           <Button></Button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default HomeScreen;

@@ -1,11 +1,22 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Knewave&family=Nunito:wght@400;600;700&display=swap');
+
+
 html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    min-height: 100%;
+    min-height: 100vh;
     background: url("./Assets/Background.svg"), lightgray 50%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% auto;
+    background-color: #1E1E1E;
+    font-family: Nunito;
    }
 
 .imagem-logo {
@@ -32,4 +43,29 @@ html {
     margin-top: 74px;   
     background:transparent;
  
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background: none;
+  text-align: center;
+
+  font-family: Nunito, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  
+  border: none;
+  color: #909090;
+  
+  padding: 5px 10px;
+  cursor: pointer;
+   
 }

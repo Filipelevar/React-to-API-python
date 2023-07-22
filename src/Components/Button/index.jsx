@@ -12,17 +12,3 @@ const SearchButton = ({ onClick }) => {
 };
 
 export default SearchButton;
-
-// import React from "react";
-// import { Link } from "react-router-dom";
-// import "./styles.css";
-
-// const SearchButton = () => {
-//   return (
-//     <Link className="container-search-btn" to="/search">
-//       <button className="search-btn">Search</button>
-//     </Link>
-//   );
-// };
-
-// export default SearchButton;
