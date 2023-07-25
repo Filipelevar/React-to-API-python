@@ -1,11 +1,17 @@
 import React from "react";
 import "./styles.css";
 
-const CharacterCard = ({ character }) => {
+const CharacterCard = ({ character, onClick }) => {
+  const isDead = character.status === "Dead";
+
   return (
     <div
-      className="rounded-lg border-2 border-solid border-gray-600 cursor-pointer shadow-outline hover:shadow-md
-     hover:border-yellow-400 focus:shadow-md focus:border-yellow-500 "
+      onClick={onClick}
+      className={`rounded-lg border-2 border-solid border-gray-600 cursor-pointer shadow-outline hover:shadow-md ${
+        isDead
+          ? "black-and-white"
+          : "hover:border-yellow-400 focus:shadow-md focus:border-yellow-500"
+      }`}
       id="div-card"
     >
       <img
