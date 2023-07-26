@@ -12,14 +12,13 @@ const Modal = ({ setModalOpen, modalContent, modalOpen }) => {
         modalOpen ? "opacity-100 visible" : "opacity-0 invisible"
       }`}
     >
-      <div className=" flex flex-col lg:flex-row border border-solid border-gray-900 h-5/6">
-        <div className="backdrop-blur-3xl pb-8 rounded-t-lg lg:rounded-tr-none lg:rounded-s-lg relative w-4/12  ">
+      <div className=" flex flex-col xl:flex-row w-96 xl:w-auto border border-solid border-gray-900 h-5/6">
+        <div className="backdrop-blur-3xl pb-8 rounded-t-lg xl:rounded-tr-none xl:rounded-s-lg relative w-4/12  ">
           <img
             src={modalContent.image}
             alt={modalContent.name}
             className="w-full h-full absolute top-0 left-0 object-cover blur border border-solid border-gray-900 brightness-50 "
           />
-
           <button
             onClick={() => setModalOpen(false)}
             className="btn m-4  z-50 relative rounded-lg border-2 border-white text-white w-20 h-11 "
@@ -28,7 +27,7 @@ const Modal = ({ setModalOpen, modalContent, modalOpen }) => {
             Close
           </button>
 
-          <div className="card lg:-translate-x-12 w-2/3 lg:w-full m-auto shadow-md ">
+          <div className="xl:-translate-x-12 w-2/3 xl:w-full m-auto shadow-md ">
             <div>
               <img
                 src={modalContent.image}
@@ -42,7 +41,7 @@ const Modal = ({ setModalOpen, modalContent, modalOpen }) => {
             </div>
           </div>
         </div>
-        <div className="bg-black rounded-b-lg lg:rounded-tr-lg lg:rounded-bl-none flex flex-col rounded-2xl">
+        <div className="bg-black rounded-b-lg xl:rounded-tr-lg xl:rounded-bl-none flex flex-col rounded-2xl">
           <div className="mt-12 mx-60 ">
             <h3 className="cardInformation text-CBD736 pt-0 pl-0">About</h3>
             <p className="info_modal text-white">{`${modalContent.name} is a ${
