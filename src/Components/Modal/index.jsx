@@ -1,8 +1,16 @@
 import React from "react";
 
-const Modal = ({ setModalOpen, modalContent }) => {
+const Modal = ({ setModalOpen, modalContent, modalOpen }) => {
+  if (!modalContent) {
+    return;
+  }
+
   return (
-    <div className="modal">
+    <div
+      className={`modal fixed flex inset-0 items-center justify-center z-4 backdrop-blur-10 ${
+        modalOpen ? "opacity-100 visible" : "opacity-0 invisible"
+      }`}
+    >
       <div className="flex flex-col lg:flex-row">
         <div className="backdrop-blur-3xl pb-8 rounded-t-lg lg:rounded-tr-none lg:rounded-s-lg">
           <button onClick={() => setModalOpen(false)} className="btn m-4">

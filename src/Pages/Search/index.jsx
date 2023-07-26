@@ -116,7 +116,8 @@ const Search = () => {
   const { name, page } = useParams();
   const [searchTerm, setSearchTerm] = useState(name);
   const [loading, setLoading] = useState(true);
-  // const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectCharacter, setSelectCharacter] = useState();
   const navigate = useNavigate();
 
   const handlePageChange = (newPage) => {
@@ -162,37 +163,49 @@ const Search = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <img src={imagemLogo} alt="" className="imagem-logo" />
-      <form
-        className="container-btn-search"
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmit();
-        }}
-      >
-        <div className="div-search-bar">
-          <SearchBar onSearch={setSearchTerm} />
+    <>
+      <div className="container mx-auto px-4 py-8">
+        <img src={imagemLogo} alt="" className="imagem-logo" />
+        <form
+          className="container-btn-search"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+        >
+          <div className="div-search-bar">
+            <SearchBar onSearch={setSearchTerm} />
+          </div>
+          <div className="div-button">
+            <Button type="submit" />
+          </div>
+        </form>
+        <div id="card-res" className="grid grid-cols-4 gap-6 mt-20">
+          {searchResults.map((character) => (
+            <CharacterCard
+              key={character.id}
+              character={character}
+              onClick={() => {
+                setSelectCharacter(character);
+                setModalOpen(true);
+              }}
+            ></CharacterCard>
+          ))}
         </div>
-        <div className="div-button">
-          <Button type="submit" />
+        <div className="mt-10">
+          <Pagination
+            page={Number(page)}
+            totalPages={totalPages}
+            handlePageChange={handlePageChange}
+          />
         </div>
-      </form>
-      <div id="card-res" className="grid grid-cols-4 gap-6 mt-20">
-        {searchResults.map((character) => (
-          <CharacterCard key={character.id} character={character}>
-            <Modal></Modal>
-          </CharacterCard>
-        ))}
       </div>
-      <div className="mt-10">
-        <Pagination
-          page={Number(page)}
-          totalPages={totalPages}
-          handlePageChange={handlePageChange}
-        />
-      </div>
-    </div>
+      <Modal
+        setModalOpen={setModalOpen}
+        modalOpen={modalOpen}
+        modalContent={selectCharacter}
+      />
+    </>
   );
 };
 

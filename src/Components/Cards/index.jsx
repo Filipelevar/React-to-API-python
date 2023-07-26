@@ -28,12 +28,12 @@ const CharacterCard = ({ character, onClick }) => {
           id="img-blur"
         />
         <h3
-          className="ms-2 text-xl font-Nunito truncate relative z-10 text-white  "
+          className="ms-2 text-xl font-Nunito truncate relative z-5 text-white  "
           id="h3-img"
         >
           {character.name}
         </h3>
-        <p className="ms-2 relative z-10 text-white" id="p-img">
+        <p className="ms-2 relative z-5 text-white" id="p-img">
           {character.species}
         </p>
       </div>
