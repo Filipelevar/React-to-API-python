@@ -7,7 +7,7 @@ const CharacterCard = ({ character, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className={`rounded-lg border-2 border-solid border-gray-600 cursor-pointer shadow-outline hover:shadow-md ${
+      className={`rounded-lg  border-2 border-solid border-gray-600 cursor-pointer shadow-outline hover:shadow-md ${
         isDead
           ? "black-and-white"
           : "hover:border-yellow-400 focus:shadow-md focus:border-yellow-500"

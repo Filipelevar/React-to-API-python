@@ -18,14 +18,14 @@ const ErrorPage = ({ setIsSearchTerm }) => {
         <div className="img-wrapper">
           <RotatingText>4{"<"}4</RotatingText>
         </div>
-        <p className="p">
+        <p className="error-message">
           The character you are trying to search has been
           <br /> moved to another universe.
         </p>
         <Link to="/">
           <button
             onClick={() => handleClick()}
-            className="button"
+            className="button-error"
             type="button"
           >
             GET ME HOME
