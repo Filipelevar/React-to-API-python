@@ -18,10 +18,6 @@ Um site de pesquisa de personagens da serie animada Rick and Morty com cards atu
 
 ![App Screenshot](https://i.imgur.com/WNpuNMF.png)
 
-## Apêndice
-
-Coloque qualquer informação adicional aqui
-
 ## Stack utilizada
 
 **Front-end:** React, TailwindCSS
