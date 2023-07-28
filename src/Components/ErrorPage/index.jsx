@@ -24,7 +24,7 @@ const ErrorPage = ({ setIsSearchTerm }) => {
         </p>
         <Link to="/">
           <button
-            onClick={() => handleClick()}
+            onClick={() => handleClick}
             className="button-error"
             type="button"
           >

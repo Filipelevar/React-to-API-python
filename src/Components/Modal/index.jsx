@@ -12,7 +12,7 @@ const Modal = ({ setModalOpen, modalContent, modalOpen }) => {
         modalOpen ? "opacity-100 visible" : "opacity-0 invisible"
       }`}
     >
-      <div className=" flex flex-col xl:flex-row w-96 xl:w-auto border border-solid border-gray-900 h-5/6">
+      <div className=" flex flex-col xl:flex-row xl:w-auto border border-solid border-gray-800 h-5/6">
         <div className="backdrop-blur-3xl pb-8 rounded-t-lg xl:rounded-tr-none xl:rounded-s-lg relative w-4/12  ">
           <img
             src={modalContent.image}
@@ -41,20 +41,29 @@ const Modal = ({ setModalOpen, modalContent, modalOpen }) => {
             </div>
           </div>
         </div>
-        <div className="bg-black rounded-b-lg xl:rounded-tr-lg xl:rounded-bl-none flex flex-col rounded-2xl">
-          <div className="mt-12 mx-60 ">
-            <h3 className="cardInformation text-CBD736 pt-0 pl-0">About</h3>
-            <p className="info_modal text-white">{`${modalContent.name} is a ${
-              modalContent.gender
-            } ${modalContent.species}. ${
+        <div className="bg-black rounded-b-lg xl:rounded-tr-lg xl:rounded-bl-none flex flex-col rounded-2xl ">
+          <div className="mt-12 ps-12 me-80 ">
+            <h3 className="cardInformation tracking-widest text-xs pt-0 pl-0 mt-20 font-Nunito">
+              About
+            </h3>
+            <p className="info_modal tracking-widest text-base mt-5 text-white font-Nunito">{`${
+              modalContent.name
+            } is a ${modalContent.gender} ${modalContent.species}. ${
               modalContent.gender === "Female" ? "She" : "He"
             } is ${modalContent.status}`}</p>
 
-            <h3 className="cardInformation text-CBD736">Origin</h3>
-            <p className="info_modal text-white ">{modalContent.origin_name}</p>
+            <h3 className="cardInformation tracking-widest  mt-24 text-xs font-Nunito">
+              Origin
+            </h3>
+            <p className="text-gray-500 mt-2 text-sm">Planet</p>
+            <p className="info_modal text-2xl tracking-widest text-white font-Nunito ">
+              {modalContent.origin_name}
+            </p>
 
-            <h3 className="cardInformation text-CBD736">Location</h3>
-            <p className="info_modal text-white">
+            <h3 className="cardInformation tracking-widest text-xs mt-36 font-Nunito">
+              Location
+            </h3>
+            <p className="info_modal tracking-widest text-2xl mt-5 text-white font-Nunito">
               {modalContent.location_name}
             </p>
           </div>

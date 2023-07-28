@@ -4,7 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        CBD736: "#CBD736",
+        'custom-yellow': '#CBD736',
+        'brow-border': '#606060',
+        'gray-placeholder': '#9F9F9F',
+      },
+      fontFamily: {
+        Nunito: ['Nunito', 'sans-serif'],
       },
     },
   },

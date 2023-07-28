@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "../../style.css";
 import imagemLogo from "../../Assets/image 1.svg";
@@ -67,7 +67,9 @@ const Search = () => {
   return (
     <>
       <div className="container mx-auto px-4 py-8">
-        <img src={imagemLogo} alt="" className="imagem-logo" />
+        <Link to={"/"}>
+          <img src={imagemLogo} alt="" className="imagem-logo" />
+        </Link>
         <form
           className="container-btn-search"
           onSubmit={(e) => {
