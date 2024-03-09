@@ -66,9 +66,9 @@ const Search = () => {
 
   return (
     <>
-      <div className="container mx-auto px-4 py-8">
-        <Link to={"/"}>
-          <img src={imagemLogo} alt="" className="imagem-logo" />
+      <div className="container mx-auto px-4 py-8 hidden lg:flex">
+        <Link to={"/homescreen"}>
+          <img src={imagemLogo} alt="" className="imagem-logo lg:flex" />
         </Link>
         <form
           className="container-btn-search"
